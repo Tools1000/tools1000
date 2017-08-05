@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>k-tools1000</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>K-Tools 1000</name>
 	<description>The brand new, ultimate, K Tools 1000 library.</description>
 	<parent>
