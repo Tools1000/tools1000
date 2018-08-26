@@ -24,21 +24,21 @@ import org.slf4j.LoggerFactory;
 
 public class BackupCreator {
 
-	private static final Logger logger = LoggerFactory.getLogger(BackupCreator.class);
+    private static final Logger logger = LoggerFactory.getLogger(BackupCreator.class);
 
-	public void makeBackup(final File file) {
-		if (file.exists() && file.length() != 0) {
-			try {
-				final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
-				FileUtils.copyFile(file, backupFile);
-				if (logger.isDebugEnabled()) {
-					logger.debug("Backup created as " + backupFile);
-				}
-			} catch (final IOException e) {
-				if (logger.isErrorEnabled()) {
-					logger.error(e.getLocalizedMessage(), e);
-				}
-			}
+    public void makeBackup(final File file) {
+	if (file.exists() && file.length() != 0) {
+	    try {
+		final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
+		FileUtils.copyFile(file, backupFile);
+		if (logger.isDebugEnabled()) {
+		    logger.debug("Backup created as " + backupFile);
 		}
+	    } catch (final IOException e) {
+		if (logger.isErrorEnabled()) {
+		    logger.error(e.getLocalizedMessage(), e);
+		}
+	    }
 	}
+    }
 }
