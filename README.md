@@ -1,5 +1,5 @@
-# k-tools1000
-The new, ultimate K-Tools 1000 library.
+# ktools1000
+The new, ultimate Tools 1000 library.
 
 
 [![Build Status](https://travis-ci.org/kerner1000/k-tools1000.svg?branch=master)](https://travis-ci.org/kerner1000/k-tools1000)
