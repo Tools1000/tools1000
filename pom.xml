@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.kerner1000</groupId>
-	<artifactId>k-tools1000</artifactId>
+	<artifactId>tools1000</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>K-Tools 1000</name>
-	<description>The brand new, ultimate, K Tools 1000 library.</description>
+	<description>The brand new, ultimate, Tools library.</description>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
@@ -30,9 +30,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>git:git@github.com:kerner1000/k-tools1000.git</url>
-		<connection>scm:git:git@github.com:kerner1000/k-tools1000.git</connection>
-		<developerConnection>scm:git:git@github.com:kerner1000/k-tools1000.git</developerConnection>
+		<url>git:git@github.com:kerner1000/tools1000.git</url>
+		<connection>scm:git:git@github.com:kerner1000/tools1000.git</connection>
+		<developerConnection>scm:git:git@github.com:kerner1000/tools1000.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 	<distributionManagement>
