@@ -26,19 +26,42 @@ public class BackupCreator {
 
     private static final Logger logger = LoggerFactory.getLogger(BackupCreator.class);
 
-    public void makeBackup(final File file) {
-	if (file.exists() && file.length() != 0) {
+    /**
+     * Copies given file to a new file with file name suffix '.bak'.
+     *
+     * @param file
+     *            the file to make a backup of
+     * @return the new file, or {@code null} in case of error
+     */
+    public File makeBackup(final File file) {
+	if (file.exists())
 	    try {
 		final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
 		FileUtils.copyFile(file, backupFile);
-		if (logger.isDebugEnabled()) {
+		if (logger.isDebugEnabled())
 		    logger.debug("Backup created as " + backupFile);
-		}
+		return backupFile;
 	    } catch (final IOException e) {
-		if (logger.isErrorEnabled()) {
+		if (logger.isErrorEnabled())
 		    logger.error(e.getLocalizedMessage(), e);
-		}
 	    }
-	}
+	return null;
+    }
+
+    public File restoreBackup(final File backupFile) {
+	if (backupFile.exists() && backupFile.getName().endsWith(".bak"))
+	    try {
+		final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
+		final File file = new File(backupFile.getParentFile(), oldFileName);
+		FileUtils.copyFile(backupFile, file);
+		if (logger.isDebugEnabled())
+		    logger.debug("Backup restored to " + file);
+		return file;
+	    } catch (final IOException e) {
+		if (logger.isErrorEnabled())
+		    logger.error(e.getLocalizedMessage(), e);
+	    }
+	return null;
+
     }
 }

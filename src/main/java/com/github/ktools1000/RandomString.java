@@ -44,6 +44,10 @@ public class RandomString {
 	return setLength(lenth);
     }
 
+    public RandomString withChars(final char[] chars) {
+	return setChars(chars);
+    }
+
     RandomString setChars(final char[] chars) {
 	this.chars = chars;
 	return this;
