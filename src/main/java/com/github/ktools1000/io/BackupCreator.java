@@ -22,6 +22,13 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Provides static methods to create a backup-copy of a file and restore a file
+ * from a backup file.
+ *
+ * @author Alexander Kerner
+ *
+ */
 public class BackupCreator {
 
     private static final Logger logger = LoggerFactory.getLogger(BackupCreator.class);
@@ -34,33 +41,47 @@ public class BackupCreator {
      * @return the new file, or {@code null} in case of error
      */
     public File makeBackup(final File file) {
-	if (file.exists())
+	if (file.exists()) {
 	    try {
 		final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
 		FileUtils.copyFile(file, backupFile);
-		if (logger.isDebugEnabled())
+		if (logger.isDebugEnabled()) {
 		    logger.debug("Backup created as " + backupFile);
+		}
 		return backupFile;
 	    } catch (final IOException e) {
-		if (logger.isErrorEnabled())
+		if (logger.isErrorEnabled()) {
 		    logger.error(e.getLocalizedMessage(), e);
+		}
 	    }
+	}
 	return null;
     }
 
+    /**
+     * I case the backup file could not be read or does not have the {@code .back}
+     * extension, {@code null} is returned.
+     *
+     * @param backupFile
+     *            the backup file to restore from
+     * @return the restored file or {@code null} in case of error
+     */
     public File restoreBackup(final File backupFile) {
-	if (backupFile.exists() && backupFile.getName().endsWith(".bak"))
+	if (backupFile.canRead() && backupFile.getName().endsWith(".bak")) {
 	    try {
 		final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
 		final File file = new File(backupFile.getParentFile(), oldFileName);
 		FileUtils.copyFile(backupFile, file);
-		if (logger.isDebugEnabled())
+		if (logger.isDebugEnabled()) {
 		    logger.debug("Backup restored to " + file);
+		}
 		return file;
 	    } catch (final IOException e) {
-		if (logger.isErrorEnabled())
+		if (logger.isErrorEnabled()) {
 		    logger.error(e.getLocalizedMessage(), e);
+		}
 	    }
+	}
 	return null;
 
     }
