@@ -1,17 +1,9 @@
-/*******************************************************************************
- * Copyright (c) 2018 Lablicate GmbH.
- *
- * All rights reserved.
- *
- * Contributors:
- * Dr. Alexander Kerner - initial API and implementation
- *
- *******************************************************************************/
+
 package com.github.ktools1000.fx;
 
 /**
  *
- * @author Alexander Kerner
+ * @author kerner1000
  *
  */
 public abstract class LazyLoadingStringProperty extends LazyLoadingObjectProperty<String> {

@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author alex
+ * @author kerner1000
  *
  */
 package com.github.ktools1000.io;

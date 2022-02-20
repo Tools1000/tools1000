@@ -1,12 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2018 Lablicate GmbH.
- *
- * All rights reserved.
- *
- * Contributors:
- * Dr. Alexander Kerner - initial API and implementation
- *
- *******************************************************************************/
+
 
 package com.github.ktools1000.fx;
 
@@ -16,7 +8,7 @@ import javafx.concurrent.Task;
 /**
  * A {@link SimpleObjectProperty} that lazily loads its value.
  *
- * @author Alexander Kerner
+ * @author kerner1000
  *
  * @param <T>
  *            type of the wrapped Object

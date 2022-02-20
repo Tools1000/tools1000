@@ -1,12 +1,4 @@
-/*******************************************************************************
- * Copyright (c) 2018 Lablicate GmbH.
- *
- * All rights reserved.
- *
- * Contributors:
- * Dr. Alexander Kerner - initial API and implementation
- *
- *******************************************************************************/
+
 package com.github.ktools1000.fx;
 
 import org.slf4j.Logger;
