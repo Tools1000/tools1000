@@ -67,7 +67,7 @@ public class BackupCreator {
      *            the backup file to restore from
      * @return the restored file or {@code null} in case of error
      */
-    public File restoreBackup(final File backupFile) {
+    public File restoreBackup(final File backupFile) throws FileNotFoundException {
 	if (backupFile.canRead() && backupFile.getName().endsWith(".bak")) {
 	    try {
 		final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
@@ -83,7 +83,7 @@ public class BackupCreator {
 		}
 	    }
 	}
-	return null;
+	throw new FileNotFoundException("Cannot read file "+ backupFile);
 
     }
 }
