@@ -16,6 +16,7 @@
 package com.github.ktools1000.io;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
@@ -26,7 +27,7 @@ import org.slf4j.LoggerFactory;
  * Provides static methods to create a backup-copy of a file and restore a file
  * from a backup file.
  *
- * @author Alexander Kerner
+ * @author kerner1000
  *
  */
 public class BackupCreator {
@@ -40,7 +41,7 @@ public class BackupCreator {
      *            the file to make a backup of
      * @return the new file, or {@code null} in case of error
      */
-    public File makeBackup(final File file) {
+    public File makeBackup(final File file) throws FileNotFoundException {
 	if (file.exists()) {
 	    try {
 		final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
@@ -55,7 +56,7 @@ public class BackupCreator {
 		}
 	    }
 	}
-	return null;
+	throw new FileNotFoundException(file.getPath());
     }
 
     /**
