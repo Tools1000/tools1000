@@ -5,5 +5,6 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kerner1000_tools1000&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=kerner1000_tools1000)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kerner1000_tools1000&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=kerner1000_tools1000)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kerner1000_tools1000&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=kerner1000_tools1000)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kerner1000_tools1000&metric=coverage)](https://sonarcloud.io/summary/new_code?id=kerner1000_tools1000)
 
 The new, ultimate Tools library.
