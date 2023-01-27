@@ -1,6 +1,5 @@
-# tools1000
+# Tools1000
+
+[![Build](https://github.com/kerner1000/tools1000/actions/workflows/build.yml/badge.svg)](https://github.com/kerner1000/tools1000/actions/workflows/build.yml) [![Latest Release](https://img.shields.io/github/release/kerner1000/tools1000.svg)](https://github.com/kerner1000/tools1000/releases/latest) [![Release Date](https://img.shields.io/github/release-date/kerner1000/tools1000?color=blue)](https://github.com/kerner1000/tools1000/releases/latest) [![License](https://img.shields.io/github/license/kerner1000/tools1000.svg)](https://github.com/kerner1000/tools1000/blob/master/LICENSE) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.kerner1000.tools1000/tools1000/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.kerner1000/tools1000)
+
 The new, ultimate Tools 1000 library.
-
-
-[![Build Status](https://travis-ci.org/kerner1000/tools1000.svg?branch=master)](https://travis-ci.org/kerner1000/tools1000)
-[![codecov](https://codecov.io/gh/kerner1000/tools1000/branch/master/graph/badge.svg)](https://codecov.io/gh/kerner1000/tools1000)
