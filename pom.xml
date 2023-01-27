@@ -4,7 +4,7 @@
 
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>tools1000</artifactId>
-	<version>1.0.0</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>Tools1000</name>
 	<description>The brand new, ultimate, Tools library.</description>
 
