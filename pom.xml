@@ -4,7 +4,7 @@
 
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>tools1000</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>Tools1000</name>
 	<description>The brand new, ultimate, Tools library.</description>
 
@@ -19,7 +19,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
-		<lombok.version>1.18.24</lombok.version>
 	</properties>
 
 	<developers>
@@ -117,13 +116,6 @@
 				<configuration>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>${lombok.version}</version>
-						</path>
-					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -134,13 +126,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.8</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>provided</scope>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
