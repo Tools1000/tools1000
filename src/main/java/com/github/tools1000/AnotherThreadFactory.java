@@ -1,4 +1,4 @@
-package com.github.ktools1000;
+package com.github.tools1000;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

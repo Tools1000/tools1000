@@ -1,4 +1,4 @@
-package com.github.ktools1000;
+package com.github.tools1000;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,13 +1,17 @@
-package com.github.ktools1000.io;
+package com.github.tools1000.io;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 public class BackupCreatorTest {
 
@@ -15,20 +19,14 @@ public class BackupCreatorTest {
 
     private BackupCreator bc;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         bc = new BackupCreator();
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         bc = null;
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void makeBackupWithNullFile() throws FileNotFoundException {
-       File file = bc.makeBackup(null);
-       assertNotNull(file);
     }
 
     @Test

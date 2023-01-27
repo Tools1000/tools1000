@@ -1,6 +1,6 @@
 
 
-package com.github.ktools1000.fx;
+package com.github.tools1000.fx;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;

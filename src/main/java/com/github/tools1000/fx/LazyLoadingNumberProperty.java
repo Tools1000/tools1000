@@ -1,4 +1,4 @@
-package com.github.ktools1000.fx;
+package com.github.tools1000.fx;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
