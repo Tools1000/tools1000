@@ -33,7 +33,7 @@ hs_err_pid*
 /release.properties
 
 #Confidential
-**/secret.properties
+secret.properties
 
 ## More
 .DS_Store
