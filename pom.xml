@@ -7,6 +7,7 @@
 	<version>0.0.8</version>
 	<name>Tools1000</name>
 	<description>The brand new, ultimate, Tools library.</description>
+	<url>https://github.com/kerner1000/tools1000</url>
 
 	<properties>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
