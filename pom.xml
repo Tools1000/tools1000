@@ -4,13 +4,12 @@
 
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>tools1000</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<version>0.0.8</version>
 	<name>Tools1000</name>
 	<description>The brand new, ultimate, Tools library.</description>
 
 	<properties>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
-		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<github-user>kerner1000</github-user>
 		<github-repo>tools1000</github-repo>
 		<resource.delimiter>@</resource.delimiter>
