@@ -4,7 +4,7 @@
 
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>tools1000</artifactId>
-	<version>0.0.9</version>
+	<version>0.0.10-SNAPSHOT</version>
 	<name>Tools1000</name>
 	<description>The brand new, ultimate, Tools library.</description>
 	<url>https://github.com/kerner1000/tools1000</url>
@@ -44,7 +44,7 @@
 		<connection>scm:git:https://github.com/${github-user}/${github-repo}.git</connection>
 		<developerConnection>scm:git:git@github.com:${github-user}/${github-repo}.git</developerConnection>
 		<url>https://github.com/${github-user}/${github-repo}</url>
-		<tag>tools1000-0.0.9</tag>
+		<tag>tools1000-1.0.0</tag>
 	</scm>
 
 	<distributionManagement>
