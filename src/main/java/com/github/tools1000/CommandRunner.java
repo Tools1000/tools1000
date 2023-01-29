@@ -46,7 +46,7 @@ public class CommandRunner {
             serrBuilder.append(line2);
         }
 
-        var result = new OutputStreams(soutBuilder.toString(), serrBuilder.toString());
+        OutputStreams result = new OutputStreams(soutBuilder.toString(), serrBuilder.toString());
         log.debug("Std out: {}", result.sout);
         log.debug("Std err: {}", result.serr);
         return result;

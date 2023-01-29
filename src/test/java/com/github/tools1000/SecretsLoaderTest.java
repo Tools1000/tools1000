@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +21,7 @@ class SecretsLoaderTest {
 
     @Test
     void test01() throws IOException {
-        var properties = new SecretsLoader().load().getProperties();
+        Properties properties = new SecretsLoader().load().getProperties();
         assertNotNull(properties);
         assertEquals("test one", properties.getProperty("test.one"));
     }

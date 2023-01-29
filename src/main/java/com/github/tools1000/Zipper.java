@@ -33,7 +33,7 @@ public class Zipper {
 
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFileName))) {
             zos.putNextEntry(new ZipEntry(source.getFileName().toString()));
-            Files.walkFileTree(source, new SimpleFileVisitor<>() {
+            Files.walkFileTree(source, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
 
