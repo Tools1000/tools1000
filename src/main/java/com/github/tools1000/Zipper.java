@@ -53,7 +53,6 @@ public class Zipper {
                             zos.write(buffer, 0, len);
                         }
                         zos.closeEntry();
-                        log.debug("Zip file: {}", file);
 
                     } catch (IOException e) {
                         log.error("Cannot zip file {}", file, e);
