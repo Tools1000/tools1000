@@ -31,6 +31,7 @@ public class CommandRunner {
     }
 
     public OutputStreams runCommand(String[] command) throws IOException {
+        verifyCommand(command);
         log.debug("Running {}", Arrays.toString(command));
         StringBuilder soutBuilder = new StringBuilder();
         StringBuilder serrBuilder = new StringBuilder();
@@ -50,5 +51,13 @@ public class CommandRunner {
         log.debug("Std out: {}", result.sout);
         log.debug("Std err: {}", result.serr);
         return result;
+    }
+
+    private void verifyCommand(String... command) {
+        for (String s : command) {
+            if (s == null || s.length() == 0) {
+                throw new IllegalArgumentException(Arrays.asList(command) + " is not a valid command");
+            }
+        }
     }
 }
