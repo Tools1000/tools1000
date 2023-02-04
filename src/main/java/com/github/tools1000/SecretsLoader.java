@@ -11,11 +11,12 @@ public class SecretsLoader {
 
     private final Properties properties;
 
-    public SecretsLoader() {
+    public SecretsLoader() throws IOException {
         properties = new Properties();
+        load();
     }
 
-    public SecretsLoader load() throws IOException {
+    SecretsLoader load() throws IOException {
         try (InputStream stream = getClass().getResourceAsStream("/secret.properties")) {
             properties.load(stream);
         }
@@ -23,7 +24,11 @@ public class SecretsLoader {
         return this;
     }
 
-    public Properties getProperties() {
+    Properties getProperties() {
         return properties;
+    }
+
+    public String getSecret(String name){
+        return getProperties().getProperty(name);
     }
 }
