@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class CommandRunner {
@@ -32,7 +33,7 @@ public class CommandRunner {
 
     public OutputStreams runCommand(String[] command) throws IOException {
         verifyCommand(command);
-        log.debug("Running {}", Arrays.toString(command));
+        log.debug("Running {}", Arrays.stream(command).collect(Collectors.joining( " ")));
         StringBuilder soutBuilder = new StringBuilder();
         StringBuilder serrBuilder = new StringBuilder();
         Process process = Runtime.getRuntime().exec(command);
