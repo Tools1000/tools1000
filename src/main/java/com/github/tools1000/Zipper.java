@@ -25,14 +25,14 @@ public class Zipper {
         this.bufferSize = DEFAULT_BUFFER_SIZE;
     }
 
-    // zip a directory, including sub files and sub directories
-    public Path zipFolder(Path source) throws IOException {
+    // zip a file or directory, including sub files and sub directories
+    public Path zip(Path source) throws IOException {
 
         // get folder name as zip file name
-        String zipFileName = source.getFileName().toString() + ".zip";
+        String zipFileName = source.toString() + ".zip";
 
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFileName))) {
-            zos.putNextEntry(new ZipEntry(source.getFileName().toString()));
+
             Files.walkFileTree(source, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
