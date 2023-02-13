@@ -19,7 +19,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
-		<javafx.version>17</javafx.version>
 		<lombok.version>1.18.26</lombok.version>
 	</properties>
 
@@ -100,11 +99,6 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.8.1</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>${javafx.version}</version>
 		</dependency>
 	</dependencies>
 
