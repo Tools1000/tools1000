@@ -76,6 +76,11 @@ public class BackupCreator {
 		if (logger.isDebugEnabled()) {
 		    logger.debug("Backup restored to " + file);
 		}
+		if(!backupFile.delete()){
+			if(logger.isWarnEnabled()){
+				logger.warn("Failed to delete backup file");
+			}
+		}
 		return file;
 	    } catch (final IOException e) {
 		if (logger.isErrorEnabled()) {
