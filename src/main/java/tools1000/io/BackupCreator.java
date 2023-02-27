@@ -26,11 +26,9 @@ import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
- * Provides static methods to create a backup-copy of a file and restore a file
- * from a backup file.
+ * Provides static methods to create a backup-copy of a file and restore a file from a backup file.
  *
  * @author kerner1000
- *
  */
 public class BackupCreator {
 
@@ -39,60 +37,55 @@ public class BackupCreator {
     /**
      * Copies given file to a new file with file name suffix '.bak'.
      *
-     * @param file
-     *            the file to make a backup of
+     * @param file the file to make a backup of
      * @return the new file, or {@code null} in case of error
      */
     public File makeBackup(final File file) throws FileNotFoundException {
-	if (file.exists()) {
-	    try {
-			final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
-			Files.copy(file.toPath(), backupFile.toPath(), REPLACE_EXISTING);
-	//		FileUtils.copyFile(file, backupFile);
-			if (logger.isDebugEnabled()) {
-				logger.debug("Backup created as " + backupFile);
-			}
-			return backupFile;
-		} catch (final IOException e) {
-		if (logger.isErrorEnabled()) {
-		    logger.error(e.getLocalizedMessage(), e);
-		}
-	    }
-	}
-	throw new FileNotFoundException(file.getPath());
+        if (file.exists()) {
+            try {
+                final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
+                Files.copy(file.toPath(), backupFile.toPath(), REPLACE_EXISTING);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Backup created [{}]", backupFile);
+                }
+                return backupFile;
+            } catch (final IOException e) {
+                if (logger.isErrorEnabled()) {
+                    logger.error(e.getLocalizedMessage(), e);
+                }
+            }
+        }
+        throw new FileNotFoundException(file.getPath());
     }
 
     /**
-     * I case the backup file could not be read or does not have the {@code .back}
-     * extension, {@code null} is returned.
+     * I case the backup file could not be read or does not have the {@code .back} extension, {@code null} is returned.
      *
-     * @param backupFile
-     *            the backup file to restore from
+     * @param backupFile the backup file to restore from
      * @return the restored file or {@code null} in case of error
      */
     public File restoreBackup(final File backupFile) throws FileNotFoundException {
-	if (backupFile.canRead() && backupFile.getName().endsWith(".bak")) {
-	    try {
-			final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
-			final File file = new File(backupFile.getParentFile(), oldFileName);
-	//		FileUtils.copyFile(backupFile, file);
-			Files.copy(backupFile.toPath(), file.toPath(), REPLACE_EXISTING);
-			if (logger.isDebugEnabled()) {
-				logger.debug("Backup restored to " + file);
-			}
-			if (!backupFile.delete()) {
-				if (logger.isWarnEnabled()) {
-					logger.warn("Failed to delete backup file");
-				}
-			}
-			return file;
-		} catch (final IOException e) {
-		if (logger.isErrorEnabled()) {
-		    logger.error(e.getLocalizedMessage(), e);
-		}
-	    }
-	}
-	throw new FileNotFoundException("Cannot read file "+ backupFile);
+        if (backupFile.canRead() && backupFile.getName().endsWith(".bak")) {
+            try {
+                final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
+                final File file = new File(backupFile.getParentFile(), oldFileName);
+                Files.copy(backupFile.toPath(), file.toPath(), REPLACE_EXISTING);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Backup restored [{}]", file);
+                }
+                if (!backupFile.delete()) {
+                    if (logger.isWarnEnabled()) {
+                        logger.warn("Failed to delete backup file");
+                    }
+                }
+                return file;
+            } catch (final IOException e) {
+                if (logger.isErrorEnabled()) {
+                    logger.error(e.getLocalizedMessage(), e);
+                }
+            }
+        }
+        throw new FileNotFoundException("Cannot read file " + backupFile);
 
     }
 }
