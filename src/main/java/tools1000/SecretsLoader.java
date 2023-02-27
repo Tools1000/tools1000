@@ -1,4 +1,4 @@
-package com.github.tools1000;
+package tools1000;
 
 import lombok.extern.slf4j.Slf4j;
 

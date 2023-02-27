@@ -1,8 +1,9 @@
-package com.github.tools1000;
+package tools1000;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tools1000.SecretsLoader;
 
 import java.io.IOException;
 import java.util.Properties;

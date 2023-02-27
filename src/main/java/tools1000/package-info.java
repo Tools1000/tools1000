@@ -5,4 +5,4 @@
  * @author alex
  *
  */
-package com.github.tools1000;
+package tools1000;

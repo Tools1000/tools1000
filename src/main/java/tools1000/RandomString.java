@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.github.tools1000;
+package tools1000;
 
 import java.util.Random;
 
