@@ -1,4 +1,4 @@
-module tools {
+open module tools {
     requires lombok;
     requires org.slf4j;
     exports tools1000;
