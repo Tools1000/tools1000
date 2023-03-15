@@ -24,7 +24,7 @@ public class BackupCreatorTest {
 
     File testEmtpyDir01Backup = new File("src/test/resources/test-empty-dir01.bak");
 
-    File testNonEmptyDir01 = new File("src/test/resources/test-empty-dir01");
+    File testNonEmptyDir01 = new File("src/test/resources/test-non-empty-dir01");
 
     File testNonEmptyDir01Backup = new File("src/test/resources/test-empty-dir01.bak");
 
