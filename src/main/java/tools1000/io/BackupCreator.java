@@ -65,7 +65,7 @@ public class BackupCreator {
      * @return the restored file or {@code null} in case of error
      */
     public File restoreBackup(final File backupFile) throws FileNotFoundException {
-        if (backupFile.canRead() && backupFile.getName().endsWith(".bak")) {
+        if (backupFile.exists() && backupFile.getName().endsWith(".bak")) {
             try {
                 final String oldFileName = backupFile.getName().substring(0, backupFile.getName().length() - 4);
                 final File file = new File(backupFile.getParentFile(), oldFileName);
