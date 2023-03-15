@@ -58,6 +58,7 @@ public class BackupCreatorTest {
         assertEquals(testFile01.getName(), file.getName());
     }
 
+    @Disabled // empty dirs are not maintained by git
     @Test
     public void testMakeBackupEmptyDir() throws FileNotFoundException {
         File file = bc.makeBackup(testEmptyDir01);
@@ -66,6 +67,7 @@ public class BackupCreatorTest {
         assertEquals(testEmptyDir01.getName() + ".bak", file.getName());
     }
 
+    @Disabled // empty dirs are not maintained by git
     @Test
     public void testRestoreBackupEmptyDir() throws FileNotFoundException {
         bc.makeBackup(testEmptyDir01);
@@ -83,7 +85,6 @@ public class BackupCreatorTest {
         assertEquals(testNonEmptyDir01.getName() + ".bak", file.getName());
     }
 
-    @Disabled // empty dirs are not maintained by git
     @Test
     public void testRestoreBackupNotEmptyDir() throws FileNotFoundException {
         bc.makeBackup(testNonEmptyDir01);
