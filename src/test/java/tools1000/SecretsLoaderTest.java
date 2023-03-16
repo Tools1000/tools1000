@@ -2,6 +2,7 @@ package tools1000;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tools1000.SecretsLoader;
 
@@ -20,6 +21,7 @@ class SecretsLoaderTest {
     void tearDown() {
     }
 
+    @Disabled // secrets.properties on gitignore
     @Test
     void test01() throws IOException {
         Properties properties = new SecretsLoader().load().getProperties();
