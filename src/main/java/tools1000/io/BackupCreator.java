@@ -22,6 +22,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Comparator;
+import java.util.stream.Stream;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
@@ -34,26 +38,46 @@ public class BackupCreator {
 
     private static final Logger logger = LoggerFactory.getLogger(BackupCreator.class);
 
+    private void copyFolder(Path src, Path dest) throws IOException {
+        try (Stream<Path> stream = Files.walk(src)) {
+            stream.forEach(source -> copy(source, dest.resolve(src.relativize(source))));
+        }
+    }
+
+    private void copy(Path source, Path dest) {
+        try {
+            Files.copy(source, dest, StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    private void delete(Path path) throws IOException {
+        if(Files.exists(path)) {
+            try (Stream<Path> paths = Files.walk(path)) {
+                paths.sorted(Comparator.reverseOrder()).filter(Files::exists).map(Path::toFile).forEach(File::delete);
+            }
+        }
+    }
+
     /**
      * Copies given file to a new file with file name suffix '.bak'.
      *
      * @param file the file to make a backup of
      * @return the new file, or {@code null} in case of error
      */
-    public File makeBackup(final File file) throws FileNotFoundException {
+    public File makeBackup(final File file) throws IOException {
         if (file.exists()) {
-            try {
-                final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
-                Files.copy(file.toPath(), backupFile.toPath(), REPLACE_EXISTING);
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Backup created [{}]", backupFile);
-                }
-                return backupFile;
-            } catch (final IOException e) {
-                if (logger.isErrorEnabled()) {
-                    logger.error(e.getLocalizedMessage(), e);
-                }
+            final File backupFile = new File(file.getParentFile(), file.getName() + ".bak");
+           delete(backupFile.toPath());
+            if(Files.isDirectory(file.toPath())){
+                copyFolder(file.toPath(), backupFile.toPath());
+            } else
+                copy(file.toPath(), backupFile.toPath());
+            if (logger.isDebugEnabled()) {
+                logger.debug("Backup created [{}]", backupFile);
             }
+            return backupFile;
         }
         throw new FileNotFoundException(file.getPath());
     }

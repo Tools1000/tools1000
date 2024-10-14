@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +44,7 @@ public class BackupCreatorTest {
     }
 
     @Test
-    public void testMakeBackupFile() throws FileNotFoundException {
+    public void testMakeBackupFile() throws IOException {
         File file = bc.makeBackup(testFile01);
         assertTrue(Files.exists(file.toPath()));
         assertTrue(Files.isRegularFile(file.toPath()));
@@ -50,7 +52,7 @@ public class BackupCreatorTest {
     }
 
     @Test
-    public void testRestoreBackupFile() throws FileNotFoundException {
+    public void testRestoreBackupFile() throws IOException {
         bc.makeBackup(testFile01);
         File file = bc.restoreBackup(testFile01Backup);
         assertTrue(Files.exists(file.toPath()));
@@ -60,7 +62,7 @@ public class BackupCreatorTest {
 
     @Disabled // empty dirs are not maintained by git
     @Test
-    public void testMakeBackupEmptyDir() throws FileNotFoundException {
+    public void testMakeBackupEmptyDir() throws IOException {
         File file = bc.makeBackup(testEmptyDir01);
         assertTrue(Files.exists(file.toPath()));
         assertTrue(Files.isDirectory(file.toPath()));
@@ -69,7 +71,7 @@ public class BackupCreatorTest {
 
     @Disabled // empty dirs are not maintained by git
     @Test
-    public void testRestoreBackupEmptyDir() throws FileNotFoundException {
+    public void testRestoreBackupEmptyDir() throws IOException {
         bc.makeBackup(testEmptyDir01);
         File file = bc.restoreBackup(testEmtpyDir01Backup);
         assertTrue(Files.exists(file.toPath()));
@@ -78,20 +80,22 @@ public class BackupCreatorTest {
     }
 
     @Test
-    public void testMakeBackupNotEmptyDir() throws FileNotFoundException {
+    public void testMakeBackupNotEmptyDir() throws IOException {
         File file = bc.makeBackup(testNonEmptyDir01);
         assertTrue(Files.exists(file.toPath()));
         assertTrue(Files.isDirectory(file.toPath()));
+        assertFalse(Files.list(file.toPath()).count() == 0);
         assertEquals(testNonEmptyDir01.getName() + ".bak", file.getName());
     }
 
     @Disabled // does not work with non-empty dirs
     @Test
-    public void testRestoreBackupNotEmptyDir() throws FileNotFoundException {
+    public void testRestoreBackupNotEmptyDir() throws IOException {
         bc.makeBackup(testNonEmptyDir01);
         File file = bc.restoreBackup(testNonEmptyDir01Backup);
         assertTrue(Files.exists(file.toPath()));
         assertTrue(Files.isDirectory(file.toPath()));
         assertEquals(testNonEmptyDir01.getName(), file.getName());
+        assertFalse(Files.list(file.toPath()).count() == 0);
     }
 }
